@@ -1,16 +1,29 @@
 
 import { Link } from "react-router-dom";
-import { User, BookOpen, Heart, FileText, Rss, Home } from "lucide-react";
+import { User, BookOpen, Heart, FileText, Rss, Home, Mail } from "lucide-react";
+import Contact from "../components/Contact";
 
 const Index = () => {
+  const scrollToContact = () => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-700">
-        <div className="max-w-6xl mx-auto px-6 py-4">
+        <div className="max-w-6xl mx-auto py-4">
           <div className="flex justify-between items-center">
-            <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Francesco Pezone, PhD
+            <Link to="/" className="flex items-center space-x-3">
+              <img 
+                src="/logo_FP.png" 
+                alt="FP Logo" 
+                className="w-8 h-8"
+                // style={{ filter: 'hue-rotate(200deg) saturate(0.8) brightness(1.2)' }}
+              />
+              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                Francesco Pezone, PhD
+              </span>
             </Link>
             <div className="flex space-x-6">
               <Link to="/" className="flex items-center space-x-2 text-blue-400 font-semibold">
@@ -29,6 +42,13 @@ const Index = () => {
                 <Heart size={18} />
                 <span>Passions</span>
               </Link>
+              <button 
+                onClick={scrollToContact}
+                className="flex items-center space-x-2 hover:text-blue-400 transition-colors"
+              >
+                <Mail size={18} />
+                <span>Contact</span>
+              </button>
               <Link to="/cv" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
                 <FileText size={18} />
                 <span>CV</span>
@@ -75,18 +95,6 @@ const Index = () => {
                   always keeping in mind the real-world constraints and requirements that make research impactful 
                   in both academic and industrial contexts.
                 </p>
-              </div>
-
-              {/* Key Highlights */}
-              <div className="mt-8 grid grid-cols-2 gap-4">
-                <div className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4 border border-slate-700">
-                  <div className="text-2xl font-bold text-blue-400 mb-1">8+</div>
-                  <div className="text-sm text-slate-400">Publications</div>
-                </div>
-                <div className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4 border border-slate-700">
-                  <div className="text-2xl font-bold text-purple-400 mb-1">2</div>
-                  <div className="text-sm text-slate-400">PhD Degrees</div>
-                </div>
               </div>
             </div>
 
@@ -141,6 +149,7 @@ const Index = () => {
           </p>
         </div>
       </section>
+      <Contact />
     </div>
   );
 };

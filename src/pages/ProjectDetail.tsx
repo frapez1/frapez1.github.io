@@ -1,36 +1,20 @@
 
 import { useParams, Link } from "react-router-dom";
-import { Github, ExternalLink, ArrowLeft, Home, BookOpen, Heart, FileText, Rss } from "lucide-react";
+import { Github, ExternalLink, ArrowLeft, Home, BookOpen, Heart, FileText, Rss, Mail } from "lucide-react";
+import Contact from "../components/Contact";
+import ContentRenderer from "../components/ContentRenderer";
+import { getCategoryColor } from "../utils/categoryColors";
+import { createMarkdownContent } from "../utils/markdownContent";
+import { getProjectBySlug } from "../utils/contentLoader";
 
 const ProjectDetail = () => {
   const { slug } = useParams();
 
-  // Sample project data - in a real app, this would come from an API or database
-  const projectData = {
-    "sq-gan": {
-      title: "SQ-GAN: Semantic Image Communications Using Masked Vector Quantization",
-      description: "Semantic Masked VQ-GAN selectively compressing images prioritizing relevant content at low bitrates. Achieved ~85% bitrate reduction while maintaining semantic fidelity.",
-      longDescription: "This project introduces a novel approach to semantic image compression using masked vector quantization within a Generative Adversarial Network (GAN) framework. The system intelligently identifies and preserves semantically important regions while aggressively compressing less critical areas, achieving unprecedented compression ratios without significant loss of perceptual quality.",
-      tech: ["PyTorch", "GANs", "Computer Vision", "Semantic Segmentation"],
-      category: "Research Project",
-      github: "https://github.com/francesco-pezone/sq-gan",
-      demo: "#",
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=600&fit=crop",
-      results: [
-        "85% bitrate reduction compared to traditional methods",
-        "Preserved semantic fidelity in compressed images",
-        "Real-time compression capabilities on GPU hardware",
-        "Successfully tested on multiple datasets including COCO and ImageNet"
-      ],
-      challenges: [
-        "Balancing compression ratio with semantic preservation",
-        "Training stability in adversarial networks",
-        "Computational efficiency for real-time applications"
-      ]
-    }
+  const scrollToContact = () => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const project = projectData[slug as keyof typeof projectData];
+  const project = getProjectBySlug(slug as string);
 
   if (!project) {
     return (
@@ -45,14 +29,57 @@ const ProjectDetail = () => {
     );
   }
 
+  // Convert markdown content to ContentBlock array
+  const additionalContentBlocks = project.markdownContent ? createMarkdownContent(project.markdownContent) : [];
+
+  // Helper function to render external link buttons
+  const renderExternalLinks = () => {
+    const linkEntries = Object.entries(project.externalLinks);
+    if (linkEntries.length === 0) return null;
+
+    return (
+      <div className="flex space-x-4 mb-8">
+        {linkEntries.map(([text, url], index) => {
+          const isLast = index === linkEntries.length - 1;
+          const isGithub = text.toLowerCase().includes('github') || text.toLowerCase().includes('view code');
+          const isPaper = text.toLowerCase().includes('paper')|| text.toLowerCase().includes('arxiv');
+          const Icon = isGithub ? Github : isPaper ? FileText : ExternalLink;
+          
+          return (
+            <a 
+              key={index}
+              href={url} 
+              className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-2 ${
+                isLast 
+                  ? 'bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600' 
+                  : 'bg-slate-700 hover:bg-slate-600'
+              }`}
+            >
+              <Icon size={20} />
+              <span>{text}</span>
+            </a>
+          );
+        })}
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-700">
-        <div className="max-w-6xl mx-auto px-6 py-4">
+        <div className="max-w-6xl mx-auto py-4">
           <div className="flex justify-between items-center">
-            <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Francesco Pezone, PhD
+            <Link to="/" className="flex items-center space-x-3">
+              <img 
+                src="/logo_FP.png" 
+                alt="FP Logo" 
+                className="w-8 h-8"
+                // style={{ filter: 'hue-rotate(200deg) saturate(0.8) brightness(1.2)' }}
+              />
+              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                Francesco Pezone, PhD
+              </span>
             </Link>
             <div className="flex space-x-6">
               <Link to="/" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
@@ -71,6 +98,13 @@ const ProjectDetail = () => {
                 <Heart size={18} />
                 <span>Passions</span>
               </Link>
+              <button 
+                onClick={scrollToContact}
+                className="flex items-center space-x-2 hover:text-blue-400 transition-colors"
+              >
+                <Mail size={18} />
+                <span>Contact</span>
+              </button>
               <Link to="/cv" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
                 <FileText size={18} />
                 <span>CV</span>
@@ -93,9 +127,13 @@ const ProjectDetail = () => {
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="bg-purple-500/20 text-purple-400 px-4 py-2 rounded-full text-sm font-medium mb-4 inline-block">
-                {project.category}
-              </span>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.categories.map((category, index) => (
+                  <span key={index} className={`px-4 py-2 rounded-full text-sm font-medium ${getCategoryColor(category)}`}>
+                    {category}
+                  </span>
+                ))}
+              </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">
                 {project.title}
               </h1>
@@ -103,22 +141,7 @@ const ProjectDetail = () => {
                 {project.description}
               </p>
               
-              <div className="flex space-x-4 mb-8">
-                <a 
-                  href={project.github} 
-                  className="bg-slate-700 hover:bg-slate-600 px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-2"
-                >
-                  <Github size={20} />
-                  <span>View Code</span>
-                </a>
-                <a 
-                  href={project.demo} 
-                  className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-2"
-                >
-                  <ExternalLink size={20} />
-                  <span>Live Demo</span>
-                </a>
-              </div>
+              {renderExternalLinks()}
               
               <div className="flex flex-wrap gap-2">
                 {project.tech.map((tech, index) => (
@@ -188,6 +211,16 @@ const ProjectDetail = () => {
           </div>
         </div>
       </section>
+
+      {/* Divider between Project Details and Additional Content */}
+      <div className="border-t border-slate-600" />
+
+      {/* Additional Content */}
+      <section className="py-16 px-6">
+        <ContentRenderer blocks={additionalContentBlocks} />
+      </section>
+
+      <Contact />
     </div>
   );
 };

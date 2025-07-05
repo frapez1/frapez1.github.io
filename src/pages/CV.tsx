@@ -1,6 +1,15 @@
-import { Download, MapPin, Calendar, Award, Code, Database, Users, Lightbulb } from "lucide-react";
+import { Download, MapPin, Calendar, Award, Code, Database, Users, Home, BookOpen, Heart, Lightbulb , FileText, Rss, Link as LinkIcon, Mail, ChevronDown, ChevronUp } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import Contact from "../components/Contact";
 
 const CV = () => {
+  const [showAllExperience, setShowAllExperience] = useState(false);
+
+  const scrollToContact = () => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   const skills = {
     Code: ["Python", "PyTorch", "Docker", "AWS", "Git", "Lambda"],
     "AI/ML": ["Transformers", "Computer Vision", "LLM", "LangGraph"],
@@ -86,20 +95,53 @@ const CV = () => {
     }
   };
 
+  const displayedExperience = showAllExperience ? experience : experience.slice(0, 2);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-700">
-        <div className="max-w-6xl mx-auto px-6 py-4">
+        <div className="max-w-6xl mx-auto py-4">
           <div className="flex justify-between items-center">
-            <a href="/" className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Francesco Pezone, PhD
-            </a>
+            <Link to="/" className="flex items-center space-x-3">
+              <img 
+                src="/logo_FP.png" 
+                alt="FP Logo" 
+                className="w-8 h-8"
+                // style={{ filter: 'hue-rotate(200deg) saturate(0.8) brightness(1.2)' }}
+              />
+              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                Francesco Pezone, PhD
+              </span>
+            </Link>
             <div className="flex space-x-6">
-              <a href="/portfolio" className="hover:text-blue-400 transition-colors">Portfolio</a>
-              <a href="/blog" className="hover:text-blue-400 transition-colors">Blog</a>
-              <a href="/passions" className="hover:text-blue-400 transition-colors">Passions</a>
-              <a href="/cv" className="text-blue-400 font-semibold">CV</a>
+              <Link to="/" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
+                <Home size={18} />
+                <span>Home</span>
+              </Link>
+              <Link to="/portfolio" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
+                <BookOpen size={18} />
+                <span>Portfolio</span>
+              </Link>
+              <Link to="/blog" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
+                <Rss size={18} />
+                <span>Blog</span>
+              </Link>
+              <Link to="/passions" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
+                <Heart size={18} />
+                <span>Passions</span>
+              </Link>
+              <button 
+                onClick={scrollToContact}
+                className="flex items-center space-x-2 hover:text-blue-400 transition-colors"
+              >
+                <Mail size={18} />
+                <span>Contact</span>
+              </button>
+              <Link to="/cv" className="flex items-center space-x-2 text-blue-400 font-semibold">
+                <FileText size={18} />
+                <span>CV</span>
+              </Link>
             </div>
           </div>
         </div>
@@ -132,7 +174,7 @@ const CV = () => {
             Skills & Expertise
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
             {Object.entries(skills).map(([category, skillList]) => (
               <div key={category} className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-6 border border-slate-700 hover:border-blue-400 transition-all duration-300">
                 <div className="flex items-center space-x-3 mb-4">
@@ -195,7 +237,7 @@ const CV = () => {
           </h2>
           
           <div className="space-y-8">
-            {experience.map((exp, index) => (
+            {displayedExperience.map((exp, index) => (
               <div key={index} className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-6 border border-slate-700 hover:border-green-400 transition-all duration-300">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                   <div>
@@ -224,6 +266,27 @@ const CV = () => {
               </div>
             ))}
           </div>
+
+          {experience.length > 2 && (
+            <div className="flex justify-center mt-8">
+              <button
+                onClick={() => setShowAllExperience(!showAllExperience)}
+                className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-2"
+              >
+                {showAllExperience ? (
+                  <>
+                    <ChevronUp size={20} />
+                    <span>Show Less</span>
+                  </>
+                ) : (
+                  <>
+                    <ChevronDown size={20} />
+                    <span>Show Previous Experience</span>
+                  </>
+                )}
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
@@ -287,6 +350,7 @@ const CV = () => {
           </div>
         </div>
       </section>
+      <Contact />
     </div>
   );
 };

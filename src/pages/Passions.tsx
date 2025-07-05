@@ -1,8 +1,13 @@
 
 import { Link } from "react-router-dom";
-import { Home, BookOpen, Heart, FileText, Rss } from "lucide-react";
+import { Home, BookOpen, Heart, FileText, Rss, Link as LinkIcon, Mail } from "lucide-react";
+import Contact from "../components/Contact";
 
 const Passions = () => {
+  const scrollToContact = () => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   const passions = [
     {
       title: "Mountain Hiking & Nature Photography",
@@ -60,10 +65,18 @@ const Passions = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-700">
-        <div className="max-w-6xl mx-auto px-6 py-4">
+        <div className="max-w-6xl mx-auto py-4">
           <div className="flex justify-between items-center">
-            <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Francesco Pezone, PhD
+            <Link to="/" className="flex items-center space-x-3">
+              <img 
+                src="/logo_FP.png" 
+                alt="FP Logo" 
+                className="w-8 h-8"
+                // style={{ filter: 'hue-rotate(200deg) saturate(0.8) brightness(1.2)' }}
+              />
+              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                Francesco Pezone, PhD
+              </span>
             </Link>
             <div className="flex space-x-6">
               <Link to="/" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
@@ -82,6 +95,13 @@ const Passions = () => {
                 <Heart size={18} />
                 <span>Passions</span>
               </Link>
+              <button 
+                onClick={scrollToContact}
+                className="flex items-center space-x-2 hover:text-blue-400 transition-colors"
+              >
+                <Mail size={18} />
+                <span>Contact</span>
+              </button>
               <Link to="/cv" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
                 <FileText size={18} />
                 <span>CV</span>
@@ -168,6 +188,7 @@ const Passions = () => {
           <div className="mt-6 text-blue-400 font-semibold">— Francesco Pezone</div>
         </div>
       </section>
+      <Contact />
     </div>
   );
 };
