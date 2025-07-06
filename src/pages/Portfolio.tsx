@@ -19,7 +19,7 @@ const Portfolio = () => {
     return entries.length > 0 ? entries[0] : null;
   };
 
-  const displayedPublications = showAllPublications ? publications : publications.slice(0, 2);
+  const displayedPublications = showAllPublications ? publications : publications.slice(0, 3);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
@@ -197,7 +197,7 @@ const Portfolio = () => {
             ))}
           </div>
 
-          {publications.length > 2 && (
+          {publications.length > 3 && (
             <div className="flex justify-center mt-8">
               <button
                 onClick={() => setShowAllPublications(!showAllPublications)}

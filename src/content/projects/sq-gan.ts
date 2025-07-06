@@ -23,20 +23,58 @@ export const sqGanProject = {
     "Computational efficiency for real-time applications"
   ],
   markdownContent: `
-## Implementation Details
 
-The implementation of SQ-GAN required careful consideration of multiple architectural components. The encoder network utilizes a ResNet-based backbone for feature extraction, while the quantization module employs learned vector codebooks to represent semantic regions efficiently.
+## 🧠 Overview
 
-![SQ-GAN Architecture Diagram](https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop "Figure 1: SQ-GAN architecture showing the encoder-decoder structure with masked quantization")
+**SQ-GAN** is a deep generative model for semantic image compression, designed to prioritize **task-relevant content** during transmission. Instead of compressing all pixels equally, it learns to focus on **semantically important objects**, such as pedestrians and traffic signs in autonomous driving scenarios. This allows **extremely low bit-per-pixel (BPP)** rates while retaining crucial image information.
 
-| Dataset | Compression Ratio | PSNR (dB) | SSIM |
-|---------|------------------|-----------|------|
-| COCO | 85% | 28.5 | 0.89 |
-| ImageNet | 82% | 27.8 | 0.87 |
-| CelebA | 88% | 29.2 | 0.91 |
+____________
 
-## Future Work
+## 🔧 Architecture
 
-Future research directions include extending the approach to video compression, where temporal consistency becomes crucial for maintaining semantic coherence across frames. We are also exploring adaptive quantization strategies that can dynamically adjust compression levels based on content complexity.
+The model builds on the **VQ-GAN** framework and introduces a **Semantic-conditioned Adaptive Mask Module (SAMM)**. Key components include:
+
+- Dual encoders and decoders for the image and its semantic segmentation map (SSM)
+- Conditioning via SPADE normalization for semantic structure injection
+- Vector quantization using learnable codebooks
+- A semantic-aware discriminator that de-emphasizes non-relevant regions during training
+
+____________
+
+## 📊 Results
+
+- Achieved **mean IoU saturation** at 0.025 BPP for segmentation retention
+- Maintained **semantic fidelity** even at 0.011 BPP
+- Visual quality superior to **BPG**, **JPEG2000**, and **HiFiC**, especially on semantically critical regions
+
+____________
+
+## 📚 Training Strategy
+
+Training followed a three-phase process:
+1. **Train semantic decoder (Gs)** with a weighted cross-entropy and VQ loss
+2. **Train image decoder (Gx)** with perceptual (LPIPS), L2, and adversarial losses
+3. **Fine-tune Gx** on reconstructed segmentation maps to mitigate semantic noise
+
+Data augmentation was applied to increase exposure to rare classes (e.g., traffic lights), improving robustness.
+
+____________
+
+## 🧩 Key Takeaways
+
+- Masking irrelevant information leads to **smarter compression**
+- Semantic conditioning via SPADE layers can greatly enhance **reconstruction accuracy**
+- Carefully designed training pipelines and discriminators are essential to **task-aware generation**
+- loss $\\mathcal{L} = \\sum_i (x_i - \\hat{x}_i)^2$
+
+____________
+
+![SQ-GAN Architecture](/public/logo_FP.png "w-24 mx-auto | SQ-GAN system pipeline $\\mathcal{L} = \\sum_i (x_i - \\hat{x}_i)^2$")
+
+____________
+
+[🔗 GitHub Repo](https://github.com/frapez1/SQ-GAN)
+
   `
+
 };

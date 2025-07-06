@@ -2,9 +2,8 @@
 import { useParams, Link } from "react-router-dom";
 import { Github, ExternalLink, ArrowLeft, Home, BookOpen, Heart, FileText, Rss, Mail } from "lucide-react";
 import Contact from "../components/Contact";
-import ContentRenderer from "../components/ContentRenderer";
+import MarkdownRenderer from "../components/MarkdownRenderer";
 import { getCategoryColor } from "../utils/categoryColors";
-import { createMarkdownContent } from "../utils/markdownContent";
 import { getProjectBySlug } from "../utils/contentLoader";
 
 const ProjectDetail = () => {
@@ -28,9 +27,6 @@ const ProjectDetail = () => {
       </div>
     );
   }
-
-  // Convert markdown content to ContentBlock array
-  const additionalContentBlocks = project.markdownContent ? createMarkdownContent(project.markdownContent) : [];
 
   // Helper function to render external link buttons
   const renderExternalLinks = () => {
@@ -75,7 +71,6 @@ const ProjectDetail = () => {
                 src="/logo_FP.png" 
                 alt="FP Logo" 
                 className="w-8 h-8"
-                // style={{ filter: 'hue-rotate(200deg) saturate(0.8) brightness(1.2)' }}
               />
               <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Francesco Pezone, PhD
@@ -216,9 +211,11 @@ const ProjectDetail = () => {
       <div className="border-t border-slate-600" />
 
       {/* Additional Content */}
-      <section className="py-16 px-6">
-        <ContentRenderer blocks={additionalContentBlocks} />
-      </section>
+      {project.markdownContent && (
+        <section className="py-16 px-6">
+          <MarkdownRenderer content={project.markdownContent} />
+        </section>
+      )}
 
       <Contact />
     </div>

@@ -117,7 +117,7 @@ const Index = () => {
       </section>
 
       {/* CTA Buttons */}
-      <section className="py-12 px-6">
+      {/* <section className="py-12 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
@@ -134,10 +134,10 @@ const Index = () => {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Research Philosophy */}
-      <section className="py-20 px-6 bg-slate-800/30">
+      {/* <section className="py-20 px-6 bg-slate-800/30">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
             Research Philosophy
@@ -148,7 +148,7 @@ const Index = () => {
             whether in academic or industrial settings."
           </p>
         </div>
-      </section>
+      </section> */}
       <Contact />
     </div>
   );

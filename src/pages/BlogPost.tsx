@@ -1,10 +1,9 @@
 
 import { useParams, Link } from "react-router-dom";
-import { Calendar, Clock, ArrowLeft, Home, BookOpen, Heart, FileText, Rss, Link as LinkIcon, Mail } from "lucide-react";
+import { Calendar, Clock, ArrowLeft, Home, BookOpen, Heart, FileText, Rss, Mail } from "lucide-react";
 import Contact from "../components/Contact";
-import ContentRenderer from "../components/ContentRenderer";
+import MarkdownRenderer from "../components/MarkdownRenderer";
 import { getCategoryColor } from "../utils/categoryColors";
-import { createMarkdownContent } from "../utils/markdownContent";
 import { getBlogPostBySlug } from "../utils/contentLoader";
 
 const BlogPost = () => {
@@ -28,9 +27,6 @@ const BlogPost = () => {
     );
   }
 
-  // Convert markdown content to ContentBlock array
-  const contentBlocks = post.markdownContent ? createMarkdownContent(post.markdownContent) : [];
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       {/* Navigation */}
@@ -42,7 +38,6 @@ const BlogPost = () => {
                 src="/logo_FP.png" 
                 alt="FP Logo" 
                 className="w-8 h-8"
-                // style={{ filter: 'hue-rotate(200deg) saturate(0.8) brightness(1.2)' }}
               />
               <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Francesco Pezone, PhD
@@ -130,9 +125,11 @@ const BlogPost = () => {
       <div className="border-t border-slate-600 -mt-12" />
 
       {/* Blog Post Content */}
-      <section className="py-16 px-6">
-        <ContentRenderer blocks={contentBlocks} />
-      </section>
+      {post.markdownContent && (
+        <section className="py-16 px-6">
+          <MarkdownRenderer content={post.markdownContent} />
+        </section>
+      )}
 
       {/* Author Section */}
       <section className="py-16 px-6 bg-slate-800/30">
