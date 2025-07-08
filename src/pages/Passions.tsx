@@ -10,52 +10,32 @@ const Passions = () => {
 
   const passions = [
     {
-      title: "Mountain Hiking & Nature Photography",
-      description: "Exploring the beauty of mountains and capturing breathtaking landscapes. The tranquility of nature provides the perfect balance to intensive research work. Through my lens, I document the raw beauty of untouched wilderness, from alpine meadows to rugged peaks. Each hike is both a physical challenge and a creative journey that inspires my approach to problem-solving in research.",
+      title: "Acroyoga & Partner Acrobatics",
+      description: "It's like grown-up playtime, but with way more core strength and trust involved. There's just something super cool about lifting someone into the air (or being the one flying). Trusting the process and knowing that everyone will do their part is key. The rest will be amazing!",
       media: {
-        type: "image",
-        src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop",
+        type: "",
+        src: "src/assets/passions/Acro.png",
         alt: "Mountain landscape photography"
       },
       side: "right"
     },
     {
-      title: "Astrophotography & Night Sky",
-      description: "Capturing the wonders of the universe through long-exposure photography. The night sky reminds me of the infinite possibilities in both science and art. Spending hours under the stars, waiting for the perfect shot, teaches patience and precision - qualities that directly translate to my research methodology. The technical challenges of astrophotography mirror the complexities of computer vision algorithms.",
+      title: "Camping & Biking",
+      description: "Pack some snacks, hop on the bike, and just go. I love the mix of freedom and simplicity, riding all day, then setting up camp wherever feels right. No rush, no plans, just vibes, fresh air, and maybe a few unexpected detours. Just a suggestion if you're reading... check the wind!",
       media: {
         type: "image",
-        src: "https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=800&h=600&fit=crop",
-        alt: "Night sky astrophotography"
-      },
-      side: "left"
-    },
-    {
-      title: "Science Communication & Teaching",
-      description: "Bridging the gap between complex scientific concepts and public understanding. I believe that making science accessible is crucial for societal progress. Whether through lectures, workshops, or informal discussions, I find joy in breaking down complex AI concepts into digestible insights. This passion for communication has shaped my approach to writing research papers and presenting at conferences.",
-      media: {
-        type: "video",
-        src: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&h=600&fit=crop",
-        alt: "Science communication and teaching"
-      },
-      side: "right"
-    },
-    {
-      title: "Technology Innovation & Experimentation",
-      description: "Staying at the forefront of technological advancement, exploring how AI and machine learning can solve real-world problems and improve human lives. I'm constantly experimenting with new frameworks, algorithms, and approaches. My home lab serves as a playground for testing emerging technologies, from edge computing devices to the latest generative AI models.",
-      media: {
-        type: "image",
-        src: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop",
+        src: "src/assets/passions/camping.png",
         alt: "Technology and innovation"
       },
       side: "left"
     },
     {
-      title: "Cultural Exchange & Travel",
-      description: "Experiencing different cultures and perspectives through travel has profoundly shaped my worldview. Living between Rome and Berlin has given me a deep appreciation for cultural diversity and different approaches to problem-solving. Each destination offers unique insights into how technology is perceived and implemented across different societies, enriching my understanding of global AI applications.",
+      title: "Cats",
+      description: "Come on... look at this BEAUTY! Do I really need to say more??",
       media: {
         type: "image",
-        src: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=600&fit=crop",
-        alt: "Travel and cultural exchange"
+        src: "src/assets/passions/cat.jpeg",
+        alt: "Mountain landscape photography"
       },
       side: "right"
     }
@@ -87,10 +67,10 @@ const Passions = () => {
                 <BookOpen size={18} />
                 <span>Portfolio</span>
               </Link>
-              <Link to="/blog" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
+              {/* <Link to="/blog" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
                 <Rss size={18} />
                 <span>Blog</span>
-              </Link>
+              </Link> */}
               <Link to="/passions" className="flex items-center space-x-2 text-blue-400 font-semibold">
                 <Heart size={18} />
                 <span>Passions</span>
@@ -118,8 +98,7 @@ const Passions = () => {
             My <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Passions</span>
           </h1>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Beyond research and academia, I'm passionate about exploring the world, capturing its beauty, 
-            and sharing the wonders of science with others. These pursuits fuel my creativity and inform my research approach.
+          Some of the things that catch my interest for no obvious reason... and that's kind of the point.
           </p>
         </div>
       </section>
@@ -178,16 +157,14 @@ const Passions = () => {
       </section>
 
       {/* Quote Section */}
-      <section className="py-20 px-6 bg-slate-800/30">
+      {/* <section className="py-20 px-6 bg-slate-800/30">
         <div className="max-w-4xl mx-auto text-center">
           <blockquote className="text-2xl font-light text-slate-300 leading-relaxed italic">
-            "The intersection of science, technology, and human experience is where the most 
-            meaningful discoveries happen. My passions fuel my curiosity and drive my research forward, 
-            reminding me that innovation thrives when we remain curious about the world around us."
+            "Quote here."
           </blockquote>
           <div className="mt-6 text-blue-400 font-semibold">— Francesco Pezone</div>
         </div>
-      </section>
+      </section> */}
       <Contact />
     </div>
   );

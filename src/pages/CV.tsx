@@ -11,10 +11,25 @@ const CV = () => {
   };
 
   const skills = {
-    Code: ["Python", "PyTorch", "Docker", "AWS", "Git", "Lambda"],
-    "AI/ML": ["Transformers", "Computer Vision", "LLM", "LangGraph"],
-    "Data/Deployment": ["NumPy", "Pandas", "MLOps", "FastAPI"],
-    "Soft Skills": ["Communication", "Teamwork", "Problem-solving"]
+    Code: [
+      "Python", "PyTorch", "TensorFlow", "Docker", "Git",
+      "AWS", "Lambda", "Bash", "SQL"
+    ],
+  
+    "AI/ML": [
+      "Transformers", "Computer Vision", "LLMs", "LangGraph",
+      "OpenCV", "Diffusion Models", "Multimodal learning", "Synthetic Data Generation"  
+    ],
+  
+    Data_Deployment: [
+      "NumPy", "Pandas", "MLOps", "FastAPI", "MLflow",
+      "Seaborn", "OpenCV", "BeautifulSoup"
+    ],
+  
+    Soft_Skills: [
+      "Communication", "Teamwork", "Problem-solving",
+      "Critical Thinking", "Research Writing", "Leadership"
+    ]
   };
 
   const education = [
@@ -44,7 +59,7 @@ const CV = () => {
       period: "Sep 2015 - June 2019",
       institution: "University of Rome Tor Vergata", 
       location: "Rome, IT",
-      details: "Strong foundation in mathematical physics and analytical thinking."
+      details: "Strong foundation in mathematics, physics and analytical thinking."
     }
   ];
 
@@ -81,6 +96,28 @@ const CV = () => {
         "Delivered hands-on lab sessions for 100+ master's students in Data Mining",
         "Provided guidance on algorithmic implementations and experimental reproducibility",
         "Evaluated student projects with emphasis on code clarity and computational efficiency"
+      ]
+    },
+    {
+      position: "Science Communicator",
+      company: "Le Muse di Archimede",
+      period: "Nov 2018 - Mar 2020",
+      location: "Rome, IT",
+      details: [
+        "Designed and led interactive STEM workshops for diverse audiences aged 6 to 99",
+        "Tailored content to accommodate varying levels of prior knowledge while ensuring scientific rigor",
+        "Refined public speaking and pedagogical skills by engaging live audiences of up to 200 participants"
+      ]
+    },
+    {
+      position: "Physics Engineer (Intern)",
+      company: "National Institute for Nuclear Physics (INFN)",
+      period: "Jan - Jun 2018",
+      location: "Frascati, IT",
+      details: [
+        "Set up and tested signal amplification circuits for muon detectors supporting CERN experiments",
+        "Analyzed signal integrity using digital oscilloscopes and real-time diagnostics",
+        "Contributed to evaluating hardware performance under operational conditions"
       ]
     }
   ];
@@ -123,10 +160,10 @@ const CV = () => {
                 <BookOpen size={18} />
                 <span>Portfolio</span>
               </Link>
-              <Link to="/blog" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
+              {/* <Link to="/blog" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
                 <Rss size={18} />
                 <span>Blog</span>
-              </Link>
+              </Link> */}
               <Link to="/passions" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
                 <Heart size={18} />
                 <span>Passions</span>
@@ -159,10 +196,15 @@ const CV = () => {
                 AI Researcher & Computer Vision Expert
               </p>
             </div>
-            <button className="mt-4 md:mt-0 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
-              <Download size={20} />
-              <span>Download PDF</span>
-            </button>
+            <a
+              href="https://drive.google.com/file/d/1pU3qQZgVdvuLTJCQt0FZlGfpobXm2CGz/view?usp=sharing"   /* ← put your real link here */
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 md:mt-0 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
+            >
+              <LinkIcon size={20} />
+              <span>See&nbsp;Full&nbsp;PDF</span>
+            </a>
           </div>
         </div>
       </section>
@@ -258,7 +300,7 @@ const CV = () => {
                 <ul className="space-y-3 pl-4">
                   {exp.details.map((detail, detailIndex) => (
                     <li key={detailIndex} className="text-slate-300 flex items-start leading-relaxed">
-                      <span className="text-blue-400 mr-3 mt-1.5 flex-shrink-0">•</span>
+                      <span className="text-blue-400 mr-3 flex-shrink-0">•</span>
                       <span>{detail}</span>
                     </li>
                   ))}
@@ -303,7 +345,7 @@ const CV = () => {
                 <div className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4 border border-slate-700">
                   <div className="flex justify-between items-center">
                     <span className="text-white font-semibold">English</span>
-                    <span className="text-slate-400">Advanced (C1/C2)</span>
+                    <span className="text-slate-400">Advanced (C1)</span>
                   </div>
                 </div>
                 <div className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4 border border-slate-700">
@@ -331,7 +373,7 @@ const CV = () => {
                   <div className="flex items-start space-x-3">
                     <Award className="text-yellow-400 mt-1" size={20} />
                     <div>
-                      <h3 className="text-white font-semibold">IEEE SPS Italy Best Master's Thesis Prize</h3>
+                      <h3 className="text-white font-semibold">IEEE SPS Italy Best Master's Thesis Award</h3>
                       <p className="text-slate-400 text-sm">Recognition for outstanding research contribution</p>
                     </div>
                   </div>

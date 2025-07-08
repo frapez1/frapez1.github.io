@@ -52,10 +52,10 @@ const BlogPost = () => {
                 <BookOpen size={18} />
                 <span>Portfolio</span>
               </Link>
-              <Link to="/blog" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
+              {/* <Link to="/blog" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
                 <Rss size={18} />
                 <span>Blog</span>
-              </Link>
+              </Link> */}
               <Link to="/passions" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
                 <Heart size={18} />
                 <span>Passions</span>

@@ -9,11 +9,11 @@ import "highlight.js/styles/github-dark.css";
 import "katex/dist/katex.min.css";
 import Index from "./pages/Index";
 import Portfolio from "./pages/Portfolio";
-import Blog from "./pages/Blog";
+// import Blog from "./pages/Blog";
 import Passions from "./pages/Passions";
 import CV from "./pages/CV";
 import ProjectDetail from "./pages/ProjectDetail";
-import BlogPost from "./pages/BlogPost";
+// import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -33,11 +33,11 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/blog" element={<Blog />} />
+          {/* <Route path="/blog" element={<Blog />} /> */}
           <Route path="/passions" element={<Passions />} />
           <Route path="/cv" element={<CV />} />
           <Route path="/project/:slug" element={<ProjectDetail />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
+          {/* <Route path="/blog/:slug" element={<BlogPost />} /> */}
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -45,6 +45,8 @@ const ProjectDetail = () => {
             <a 
               key={index}
               href={url} 
+              target="_blank"                 // ← open in new tab
+              rel="noopener noreferrer"      // ← security best-practice
               className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-2 ${
                 isLast 
                   ? 'bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600' 
@@ -85,10 +87,10 @@ const ProjectDetail = () => {
                 <BookOpen size={18} />
                 <span>Portfolio</span>
               </Link>
-              <Link to="/blog" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
+              {/* <Link to="/blog" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
                 <Rss size={18} />
                 <span>Blog</span>
-              </Link>
+              </Link> */}
               <Link to="/passions" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
                 <Heart size={18} />
                 <span>Passions</span>

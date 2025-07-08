@@ -47,10 +47,10 @@ const Portfolio = () => {
                 <BookOpen size={18} />
                 <span>Portfolio</span>
               </Link>
-              <Link to="/blog" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
+              {/* <Link to="/blog" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
                 <Rss size={18} />
                 <span>Blog</span>
-              </Link>
+              </Link> */}
               <Link to="/passions" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
                 <Heart size={18} />
                 <span>Passions</span>
@@ -78,8 +78,7 @@ const Portfolio = () => {
             My <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Portfolio</span>
           </h1>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            A collection of my research projects, publications, and contributions to the field of 
-            AI, Computer Vision, and Semantic Communications.
+            A collection of my projects, publications, and contributions to the field of AI, Computer Vision, and Semantic Communications.
           </p>
         </div>
       </section>
@@ -88,7 +87,7 @@ const Portfolio = () => {
       <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Featured Projects
+            Projects
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

@@ -39,10 +39,10 @@ const Blog = () => {
                 <BookOpen size={18} />
                 <span>Portfolio</span>
               </Link>
-              <Link to="/blog" className="flex items-center space-x-2 text-blue-400 font-semibold">
+              {/* <Link to="/blog" className="flex items-center space-x-2 text-blue-400 font-semibold">
                 <Rss size={18} />
                 <span>Blog</span>
-              </Link>
+              </Link> */}
               <Link to="/passions" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
                 <Heart size={18} />
                 <span>Passions</span>
@@ -70,8 +70,7 @@ const Blog = () => {
             My <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Blog</span>
           </h1>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Insights from the intersection of AI research, computer vision, and practical applications. 
-            Sharing knowledge, experiences, and thoughts on the latest developments in technology.
+          Not peer-reviewed, definitely not optimized! Just the stuff that doesn't fit in a paper or a repo. Me, thinking out loud. 
           </p>
         </div>
       </section>

@@ -34,10 +34,10 @@ const Index = () => {
                 <BookOpen size={18} />
                 <span>Portfolio</span>
               </Link>
-              <Link to="/blog" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
+              {/* <Link to="/blog" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
                 <Rss size={18} />
                 <span>Blog</span>
-              </Link>
+              </Link> */}
               <Link to="/passions" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
                 <Heart size={18} />
                 <span>Passions</span>
@@ -71,9 +71,7 @@ const Index = () => {
               <div className="space-y-6 text-lg text-slate-300 leading-relaxed">
                 <p>
                   I'm an AI Researcher with dual Ph.D. degrees in Data Science and Engineering, specializing in 
-                  Computer Vision, Generative AI, optimization theory, and signal processing. My work spans both 
-                  academic research and industry applications, focusing on developing innovative solutions that 
-                  bridge the gap between theoretical research and practical deployment.
+                  Computer Vision, Generative AI, optimization theory, and signal processing.
                 </p>
                 
                 <p>
@@ -86,7 +84,7 @@ const Index = () => {
                 <p>
                   Throughout my career, I've collaborated with leading academic institutions including 
                   Sapienza University of Rome, TU Berlin, and the National Inter-University Consortium for Telecommunications (CNIT), 
-                  as well as industry partners like Einblick. My work has been published in top-tier conferences and journals, 
+                  as well as industry partners. My work has been published in top-tier conferences and journals, 
                   contributing to the advancement of semantic communications and generative AI applications.
                 </p>
                 
@@ -103,7 +101,7 @@ const Index = () => {
               <div className="relative">
                 <div className="w-full max-w-md mx-auto">
                   <img 
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop&crop=face"
+                    src="src/assets/home/image_home.png"
                     alt="Francesco Pezone"
                     className="w-full h-auto rounded-2xl shadow-2xl border-4 border-slate-700"
                   />

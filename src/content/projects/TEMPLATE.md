@@ -32,7 +32,7 @@ export const yourProjectSlug = {
 
 Your detailed content here. You can use:
 - Markdown formatting
-- Images with ![Alt text](image-url "Caption")
+- Images with ![Alt text](image-url "screen setting w-24 or similar | Caption")
 - Tables
 - Lists
 - Code blocks

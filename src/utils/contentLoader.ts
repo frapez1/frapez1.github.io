@@ -2,11 +2,18 @@
 // Import all project files
 import { sqGanProject } from '../content/projects/sq-gan';
 import { spicProject } from '../content/projects/spic';
+import { pm10Project } from '../content/projects/pm10';
+import { dsalgorithmsProject } from '../content/projects/ds-algorithms';
+import { breastProject } from '../content/projects/breast-cancer';
+
 
 // Import all blog post files
 import { sqGanSemanticCompressionPost } from '../content/blog/sq-gan-semantic-compression';
 import { diffusionModelsFuturePost } from '../content/blog/diffusion-models-future';
-
+import { aiOnTheEdgePost } from '../content/blog/aiOnTheEdge';
+import { futureOfEdgeComputingPost } from '../content/blog/futureOfEdgeComputing';
+import { generativeAiInCommunicationPost } from '../content/blog/generativeAiInCommunication';
+import { semanticCommunicationPost } from '../content/blog/semanticCommunication';
 // Project type definition
 export interface Project {
   slug: string;
@@ -38,12 +45,19 @@ export interface BlogPost {
 export const allProjects: Project[] = [
   sqGanProject,
   spicProject,
+  breastProject,
+  dsalgorithmsProject,
+  pm10Project,
 ];
 
 // Export all blog posts
 export const allBlogPosts: BlogPost[] = [
   sqGanSemanticCompressionPost,
   diffusionModelsFuturePost,
+  aiOnTheEdgePost,
+  futureOfEdgeComputingPost,
+  generativeAiInCommunicationPost,
+  semanticCommunicationPost,
 ];
 
 // Utility functions
