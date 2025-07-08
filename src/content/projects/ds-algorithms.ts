@@ -89,7 +89,7 @@ The algorithm correctly sorts any list of words. The primary learning outcome wa
 * **Theoretical Complexity**: The algorithm has a time complexity of **O(n·d)**, where n is the number of words and d is the length of the longest word. This is because it performs a linear-time Counting Sort d times on lists of decreasing size, with the total work being proportional to the total number of characters.
 * **Empirical Analysis**: We wrote dedicated functions (plot_time_complexity_...) to measure the algorithm's runtime against randomly generated data. The plots confirmed the theoretical analysis: runtime scaled linearly with n (for fixed d), linearly with d (for fixed n), and quadratically when n=d, perfectly matching the **O(n·d)** complexity.
 
-![Sorting speed](/src/assets/projects/ds_algorithms/sorting.png "md:w-2/3 lg:w-2/3 mx-auto | Empirical running time of the counting sort algorithm")
+![Sorting speed](/public/images/projects/ds_algorithms/sorting.png "md:w-2/3 lg:w-2/3 mx-auto | Empirical running time of the counting sort algorithm")
 -----
 
 ## 3. Object-Oriented K-Means Clustering for Wine Analysis 🍷
@@ -108,7 +108,7 @@ We designed a robust, reusable k_mean python class that encapsulates the entire 
 * **K-Means Algorithm**: The apply method implements the iterative algorithm with random centroid initialization. A key feature is its intelligent **convergence criterion**: the loop terminates not after a fixed number of iterations, but when the reduction in the Sum of Squared Distances (SSD) between iterations becomes negligible (less than 0.1% of the total SSD), ensuring an efficient path to a stable solution.
 * **Dynamic Visualization**: We created a custom SubplotAnimation class that uses matplotlib.animation to generate a video of the clustering process. This powerful visual tool shows the cluster assignments and centroids evolving with each iteration on one subplot, while simultaneously plotting the decreasing SSD on another.
 
-![Clustering](/src/assets/projects/ds_algorithms/clustering.png "md:w-2/3 lg:w-2/3 mx-auto | Intermediate frame of the animation with cluster and associated SSD.")
+![Clustering](/public/images/projects/ds_algorithms/clustering.png "md:w-2/3 lg:w-2/3 mx-auto | Intermediate frame of the animation with cluster and associated SSD.")
 
 ### Results & Learnings
 
@@ -142,7 +142,7 @@ The comparison yielded a clear result:
 This experiment definitively demonstrates the primary weakness of K-Means: it can easily get trapped in a suboptimal solution. **However**, it should be mentioned that K-median MILP can lead to better solution but it is still too slow. This is the main reason that makes K-mean popular... is its speed. 
 This work highlights a deep understanding of algorithmic limitations and the ability to use advanced mathematical programming techniques to formally evaluate them.
 
-![Clustering](/src/assets/projects/ds_algorithms/k_mean.png "md:w-2/3 lg:w-2/3 mx-auto | Visual example of the difference in performances between k-mena and k-median.")
+![Clustering](/public/images/projects/ds_algorithms/k_mean.png "md:w-2/3 lg:w-2/3 mx-auto | Visual example of the difference in performances between k-mena and k-median.")
   `
 
 };

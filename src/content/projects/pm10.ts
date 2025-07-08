@@ -52,7 +52,7 @@ The first goal was to model Modena's PM10 levels as a function of the PM10 level
 
 A correlation matrix revealed a high degree of positive correlation between the PM10 levels in Modena, Bologna, and Parma (correlation coefficients > 0.85), providing strong justification for the modeling approach. Autocorrelation (ACF) plots also showed significant temporal dependence, with one day's pollution being a strong predictor of the next.
 
-![correlation](/src/assets/projects/pm10/correlation.png "md:w-1/3 lg:w-1/3 mx-auto | Upper triangle of the correlation Matrix for PM10 between Modena, Bologna and Parma.")
+![correlation](/public/images/projects/pm10/correlation.png "md:w-1/3 lg:w-1/3 mx-auto | Upper triangle of the correlation Matrix for PM10 between Modena, Bologna and Parma.")
 
 ### Modeling and Results
 
@@ -64,7 +64,7 @@ Both a standard linear regression and a **Bayesian model in JAGS** were implemen
 
 Both models performed excellently, achieving a **correlation of more than 0.96** between the predicted values and the actual PM10 values for Modena.
 
-![Scatter plot](/src/assets/projects/pm10/scatter_plot_city.png "md:w-2/3 lg:w-2/3 mx-auto | Scatter plot between predicted and true values of PM10 in Modena.")
+![Scatter plot](/public/images/projects/pm10/scatter_plot_city.png "md:w-2/3 lg:w-2/3 mx-auto | Scatter plot between predicted and true values of PM10 in Modena.")
 ---
 
 ## Part 2: Predicting Modena PM10 Using Local Atmospheric Data
@@ -78,7 +78,7 @@ This approach was complicated by a large amount of missing data for these local 
 After imputation, EDA confirmed the expected physical relationships: PM10 showed a strong positive correlation with PM2.5, a moderate negative correlation with temperature, and a moderate positive correlation with pressure.
 
 
-![Modena's correlation](/src/assets/projects/pm10/modena_correlation.png "md:w-2/3 lg:w-2/3 mx-auto | Upper triangle of the correlation Matrix of Modena's Local Pollutants (After Imputation).")
+![Modena's correlation](/public/images/projects/pm10/modena_correlation.png "md:w-2/3 lg:w-2/3 mx-auto | Upper triangle of the correlation Matrix of Modena's Local Pollutants (After Imputation).")
 
 
 ### Modeling and Results
@@ -89,7 +89,7 @@ $$
 $$
 Again, both statistical and Bayesian models were fit. The models performed well, achieving a **correlation of approximately 0.83** between the predicted and actual PM10 values.
 
-![Scatter plot](/src/assets/projects/pm10/scatter_plot_modena.png "md:w-2/3 lg:w-2/3 mx-auto | Predicted vs. Actual PM10 for Modena (Local Factors Model).")
+![Scatter plot](/public/images/projects/pm10/scatter_plot_modena.png "md:w-2/3 lg:w-2/3 mx-auto | Predicted vs. Actual PM10 for Modena (Local Factors Model).")
 
 ## Key Findings & Learnings
 

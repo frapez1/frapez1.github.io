@@ -14,7 +14,7 @@ const Passions = () => {
       description: "It's like grown-up playtime, but with way more core strength and trust involved. There's just something super cool about lifting someone into the air (or being the one flying). Trusting the process and knowing that everyone will do their part is key. The rest will be amazing!",
       media: {
         type: "",
-        src: "src/assets/passions/Acro.png",
+        src: "public/images/passions/Acro.png",
         alt: "Mountain landscape photography"
       },
       side: "right"
@@ -24,7 +24,7 @@ const Passions = () => {
       description: "Pack some snacks, hop on the bike, and just go. I love the mix of freedom and simplicity, riding all day, then setting up camp wherever feels right. No rush, no plans, just vibes, fresh air, and maybe a few unexpected detours. Just a suggestion if you're reading... check the wind!",
       media: {
         type: "image",
-        src: "src/assets/passions/camping.png",
+        src: "public/images/passions/camping.png",
         alt: "Technology and innovation"
       },
       side: "left"
@@ -34,7 +34,7 @@ const Passions = () => {
       description: "Come on... look at this BEAUTY! Do I really need to say more??",
       media: {
         type: "image",
-        src: "src/assets/passions/cat.jpeg",
+        src: "public/images/passions/cat.jpeg",
         alt: "Mountain landscape photography"
       },
       side: "right"

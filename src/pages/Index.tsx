@@ -101,7 +101,7 @@ const Index = () => {
               <div className="relative">
                 <div className="w-full max-w-md mx-auto">
                   <img 
-                    src="src/assets/home/image_home.png"
+                    src="public/images/home/image_home.png"
                     alt="Francesco Pezone"
                     className="w-full h-auto rounded-2xl shadow-2xl border-4 border-slate-700"
                   />
