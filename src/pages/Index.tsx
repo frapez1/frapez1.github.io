@@ -1,7 +1,7 @@
-
 import { Link } from "react-router-dom";
 import { User, BookOpen, Heart, FileText, Rss, Home, Mail } from "lucide-react";
 import Contact from "../components/Contact";
+import MobileNav from "../components/MobileNav";
 
 const Index = () => {
   const scrollToContact = () => {
@@ -12,20 +12,21 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-700">
-        <div className="max-w-6xl mx-auto py-4">
+        <div className="max-w-6xl mx-auto py-4 px-6">
           <div className="flex justify-between items-center">
             <Link to="/" className="flex items-center space-x-3">
               <img 
                 src="/logo_FP.png" 
                 alt="FP Logo" 
                 className="w-8 h-8"
-                // style={{ filter: 'hue-rotate(200deg) saturate(0.8) brightness(1.2)' }}
               />
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Francesco Pezone, PhD
               </span>
             </Link>
-            <div className="flex space-x-6">
+            
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex space-x-6">
               <Link to="/" className="flex items-center space-x-2 text-blue-400 font-semibold">
                 <Home size={18} />
                 <span>Home</span>
@@ -34,10 +35,6 @@ const Index = () => {
                 <BookOpen size={18} />
                 <span>Portfolio</span>
               </Link>
-              {/* <Link to="/blog" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
-                <Rss size={18} />
-                <span>Blog</span>
-              </Link> */}
               <Link to="/passions" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
                 <Heart size={18} />
                 <span>Passions</span>
@@ -54,6 +51,9 @@ const Index = () => {
                 <span>CV</span>
               </Link>
             </div>
+
+            {/* Mobile Navigation */}
+            <MobileNav scrollToContact={scrollToContact} />
           </div>
         </div>
       </nav>
@@ -101,7 +101,7 @@ const Index = () => {
               <div className="relative">
                 <div className="w-full max-w-md mx-auto">
                   <img 
-                    src="public/images/home/image_home.png"
+                    src="/images/home/image_home.png"
                     alt="Francesco Pezone"
                     className="w-full h-auto rounded-2xl shadow-2xl border-4 border-slate-700"
                   />
@@ -114,39 +114,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Buttons */}
-      {/* <section className="py-12 px-6">
-        <div className="max-w-6xl mx-auto text-center">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
-              to="/portfolio"
-              className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
-            >
-              View My Work
-            </Link>
-            <Link
-              to="/blog"
-              className="border border-slate-600 hover:border-blue-400 px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-slate-800"
-            >
-              Read My Blog
-            </Link>
-          </div>
-        </div>
-      </section> */}
-
-      {/* Research Philosophy */}
-      {/* <section className="py-20 px-6 bg-slate-800/30">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Research Philosophy
-          </h2>
-          <p className="text-xl text-slate-300 leading-relaxed">
-            "My expertise supports the development of systems that are both technically rigorous and practically deployable. 
-            I believe that the most impactful research happens at the intersection of theoretical innovation and real-world application, 
-            whether in academic or industrial settings."
-          </p>
-        </div>
-      </section> */}
       <Contact />
     </div>
   );

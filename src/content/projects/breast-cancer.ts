@@ -61,7 +61,7 @@ Our approach centered on fine-tuning pre-trained Convolutional Neural Networks, 
 Every image consisted of a slice extracted via Digital Breast Tomosynthesis (DBT). An example of these DBT are shown below.
 
 
-![Breast Cancer types](/public/images/projects/breast-cancer/breat_cancer_types.png "md:w-2/3 lg:w-2/3 mx-auto | Example of DBT for a Malignant, a Benign and a Normal case")
+![Breast Cancer types](/images/projects/breast-cancer/breat_cancer_types.png "md:w-2/3 lg:w-2/3 mx-auto | Example of DBT for a Malignant, a Benign and a Normal case")
 
 -----
 
@@ -93,7 +93,7 @@ My approach to data cleaning involved a combination of techniques aimed at isola
 
 By meticulously applying these filtering and cleaning steps, I aimed to transform the raw, noisy DDSM images into a more standardized and feature-rich format, thus providing a much better foundation for the deep learning models to extract meaningful patterns for both density assessment and cancer detection. One of the cleaned DBT is shown below.
 
-![Cleaned DBT](/public/images/projects/breast-cancer/breast_cancer_denoised.png "md:w-2/3 lg:w-2/3 mx-auto | The use of a two-pass binary connected-component labeling algorithm, which identifies all distinct connected component, allowed to detect and remove the text and produce the clean image on the RIGHT.")
+![Cleaned DBT](/images/projects/breast-cancer/breast_cancer_denoised.png "md:w-2/3 lg:w-2/3 mx-auto | The use of a two-pass binary connected-component labeling algorithm, which identifies all distinct connected component, allowed to detect and remove the text and produce the clean image on the RIGHT.")
 
 -----
 

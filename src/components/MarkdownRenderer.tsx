@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -46,7 +45,6 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
             <ol className="list-decimal list-inside space-y-2 text-slate-300 ml-4 mb-6">{children}</ol>
           ),
           li: ({ children, ...props }) => {
-            // Check if the li element has ordered context by looking at the node type
             const isOrdered = props.node && (props.node as any).parent && (props.node as any).parent.tagName === 'ol';
             return (
               <li className={`leading-relaxed ${isOrdered ? 'pl-2' : 'flex items-start space-x-3'}`}>
@@ -98,11 +96,17 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
               if (cls) classes = cls;
               if (cap) caption = cap;
             }
+
+            // Fix image path - if it starts with /public/, remove that part
+            let imageSrc = src || "";
+            if (imageSrc.startsWith("/public/")) {
+              imageSrc = imageSrc.replace("/public/", "/");
+            }
           
             return (
               <figure className="mb-8">
                 <img
-                  src={src}
+                  src={imageSrc}
                   alt={alt}
                   className={`${classes} h-auto rounded-lg shadow-lg`}
                 />
@@ -112,7 +116,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
                       remarkPlugins={[remarkGfm, remarkMath]}
                       rehypePlugins={[rehypeKatex]}
                       components={{
-                        p: ({ children }) => <>{children}</>, // strip extra <p>
+                        p: ({ children }) => <>{children}</>,
                       }}
                     >
                       {caption}

@@ -1,8 +1,8 @@
-
 import { useParams, Link } from "react-router-dom";
 import { Github, ExternalLink, ArrowLeft, Home, BookOpen, Heart, FileText, Rss, Mail } from "lucide-react";
 import Contact from "../components/Contact";
 import MarkdownRenderer from "../components/MarkdownRenderer";
+import MobileNav from "../components/MobileNav";
 import { getCategoryColor } from "../utils/categoryColors";
 import { getProjectBySlug } from "../utils/contentLoader";
 
@@ -28,7 +28,6 @@ const ProjectDetail = () => {
     );
   }
 
-  // Helper function to render external link buttons
   const renderExternalLinks = () => {
     const linkEntries = Object.entries(project.externalLinks);
     if (linkEntries.length === 0) return null;
@@ -45,8 +44,8 @@ const ProjectDetail = () => {
             <a 
               key={index}
               href={url} 
-              target="_blank"                 // ← open in new tab
-              rel="noopener noreferrer"      // ← security best-practice
+              target="_blank"                 
+              rel="noopener noreferrer"      
               className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center space-x-2 ${
                 isLast 
                   ? 'bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600' 
@@ -66,7 +65,7 @@ const ProjectDetail = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-700">
-        <div className="max-w-6xl mx-auto py-4">
+        <div className="max-w-6xl mx-auto py-4 px-6">
           <div className="flex justify-between items-center">
             <Link to="/" className="flex items-center space-x-3">
               <img 
@@ -74,11 +73,13 @@ const ProjectDetail = () => {
                 alt="FP Logo" 
                 className="w-8 h-8"
               />
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Francesco Pezone, PhD
               </span>
             </Link>
-            <div className="flex space-x-6">
+            
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex space-x-6">
               <Link to="/" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
                 <Home size={18} />
                 <span>Home</span>
@@ -87,10 +88,6 @@ const ProjectDetail = () => {
                 <BookOpen size={18} />
                 <span>Portfolio</span>
               </Link>
-              {/* <Link to="/blog" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
-                <Rss size={18} />
-                <span>Blog</span>
-              </Link> */}
               <Link to="/passions" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
                 <Heart size={18} />
                 <span>Passions</span>
@@ -107,6 +104,9 @@ const ProjectDetail = () => {
                 <span>CV</span>
               </Link>
             </div>
+
+            {/* Mobile Navigation */}
+            <MobileNav scrollToContact={scrollToContact} />
           </div>
         </div>
       </nav>

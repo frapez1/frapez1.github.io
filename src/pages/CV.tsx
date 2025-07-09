@@ -2,6 +2,7 @@ import { Download, MapPin, Calendar, Award, Code, Database, Users, Home, BookOpe
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Contact from "../components/Contact";
+import MobileNav from "../components/MobileNav";
 
 const CV = () => {
   const [showAllExperience, setShowAllExperience] = useState(false);
@@ -138,7 +139,7 @@ const CV = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-700">
-        <div className="max-w-6xl mx-auto py-4">
+        <div className="max-w-6xl mx-auto py-4 px-6">
           <div className="flex justify-between items-center">
             <Link to="/" className="flex items-center space-x-3">
               <img 
@@ -147,11 +148,11 @@ const CV = () => {
                 className="w-8 h-8"
                 // style={{ filter: 'hue-rotate(200deg) saturate(0.8) brightness(1.2)' }}
               />
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Francesco Pezone, PhD
               </span>
             </Link>
-            <div className="flex space-x-6">
+            <div className="hidden md:flex space-x-6">
               <Link to="/" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
                 <Home size={18} />
                 <span>Home</span>
@@ -180,6 +181,8 @@ const CV = () => {
                 <span>CV</span>
               </Link>
             </div>
+            {/* Mobile Navigation */}
+            <MobileNav scrollToContact={scrollToContact} />
           </div>
         </div>
       </nav>

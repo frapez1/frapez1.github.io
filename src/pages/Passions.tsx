@@ -1,7 +1,7 @@
-
 import { Link } from "react-router-dom";
 import { Home, BookOpen, Heart, FileText, Rss, Link as LinkIcon, Mail } from "lucide-react";
 import Contact from "../components/Contact";
+import MobileNav from "../components/MobileNav";
 
 const Passions = () => {
   const scrollToContact = () => {
@@ -14,7 +14,7 @@ const Passions = () => {
       description: "It's like grown-up playtime, but with way more core strength and trust involved. There's just something super cool about lifting someone into the air (or being the one flying). Trusting the process and knowing that everyone will do their part is key. The rest will be amazing!",
       media: {
         type: "",
-        src: "public/images/passions/Acro.png",
+        src: "/images/passions/Acro.png",
         alt: "Mountain landscape photography"
       },
       side: "right"
@@ -24,7 +24,7 @@ const Passions = () => {
       description: "Pack some snacks, hop on the bike, and just go. I love the mix of freedom and simplicity, riding all day, then setting up camp wherever feels right. No rush, no plans, just vibes, fresh air, and maybe a few unexpected detours. Just a suggestion if you're reading... check the wind!",
       media: {
         type: "image",
-        src: "public/images/passions/camping.png",
+        src: "/images/passions/camping.png",
         alt: "Technology and innovation"
       },
       side: "left"
@@ -34,7 +34,7 @@ const Passions = () => {
       description: "Come on... look at this BEAUTY! Do I really need to say more??",
       media: {
         type: "image",
-        src: "public/images/passions/cat.jpeg",
+        src: "/images/passions/cat.jpeg",
         alt: "Mountain landscape photography"
       },
       side: "right"
@@ -45,20 +45,21 @@ const Passions = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-700">
-        <div className="max-w-6xl mx-auto py-4">
+        <div className="max-w-6xl mx-auto py-4 px-6">
           <div className="flex justify-between items-center">
             <Link to="/" className="flex items-center space-x-3">
               <img 
                 src="/logo_FP.png" 
                 alt="FP Logo" 
                 className="w-8 h-8"
-                // style={{ filter: 'hue-rotate(200deg) saturate(0.8) brightness(1.2)' }}
               />
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Francesco Pezone, PhD
               </span>
             </Link>
-            <div className="flex space-x-6">
+            
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex space-x-6">
               <Link to="/" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
                 <Home size={18} />
                 <span>Home</span>
@@ -67,10 +68,6 @@ const Passions = () => {
                 <BookOpen size={18} />
                 <span>Portfolio</span>
               </Link>
-              {/* <Link to="/blog" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
-                <Rss size={18} />
-                <span>Blog</span>
-              </Link> */}
               <Link to="/passions" className="flex items-center space-x-2 text-blue-400 font-semibold">
                 <Heart size={18} />
                 <span>Passions</span>
@@ -87,6 +84,9 @@ const Passions = () => {
                 <span>CV</span>
               </Link>
             </div>
+
+            {/* Mobile Navigation */}
+            <MobileNav scrollToContact={scrollToContact} />
           </div>
         </div>
       </nav>
@@ -156,15 +156,6 @@ const Passions = () => {
         </div>
       </section>
 
-      {/* Quote Section */}
-      {/* <section className="py-20 px-6 bg-slate-800/30">
-        <div className="max-w-4xl mx-auto text-center">
-          <blockquote className="text-2xl font-light text-slate-300 leading-relaxed italic">
-            "Quote here."
-          </blockquote>
-          <div className="mt-6 text-blue-400 font-semibold">— Francesco Pezone</div>
-        </div>
-      </section> */}
       <Contact />
     </div>
   );
