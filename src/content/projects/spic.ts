@@ -29,7 +29,7 @@ Semantic communication is revolutionizing how we think about transmitting inform
 
 The SPIC framework utilizes a sophisticated encoder-decoder architecture. The transmitter side generates a Semantic Segmentation Map (SSM) using an off-the-shelf high-performance model and a low-resolution version of the original image, both compressed for efficiency. These two crucial pieces of information are then sent to the receiver. The receiver employs a powerful Semantic-Conditioned Super-Resolution Diffusion Model (SemCoRe) to reconstruct the full-resolution image. This model is uniquely doubly-conditioned on both the received SSM and the coarse low-resolution image, enabling it to progressively refine the image from noise into a high-fidelity, semantically accurate reconstruction.
 
-![general_scheme](/images/projects/spic/schema.png "mx-auto | Overview of the SPIC Architecture. The diagram illustrates our novel approach, combining a Semantic Segmentation Map (s) and a coarse low-resolution image (c), both compressed with classical off-the-shelf algorithms for efficient encoding. The reconstruction employs the proposed Semantic-Conditioned Super-Resolution Diffusion Model, leveraging both s and c for high-fidelity semantic-relevant image recovery even at low BPP.")
+![general_scheme](/images/projects/spic/schema.webp "mx-auto | Overview of the SPIC Architecture. The diagram illustrates our novel approach, combining a Semantic Segmentation Map (s) and a coarse low-resolution image (c), both compressed with classical off-the-shelf algorithms for efficient encoding. The reconstruction employs the proposed Semantic-Conditioned Super-Resolution Diffusion Model, leveraging both s and c for high-fidelity semantic-relevant image recovery even at low BPP.")
 
 ## Key Features
 
@@ -51,7 +51,7 @@ SPIC's training process involves an end to end training of the whole framework. 
 
 SPIC consistently **outperforms existing compression algorithms** like BPG and JPEG2000 in terms of mIoU at comparable or even lower BPPs. This indicates SPIC's superior ability to **preserve semantic content** even at very high compression ratios. Furthermore, SPIC achieves **low FID scores**, demonstrating its capability to reconstruct images with high perceptual quality while maintaining semantic integrity. For example, visual comparisons show SPIC's reconstructed images clearly revealing small, semantically important objects (like pedestrians and road signs) that are often lost or indistinguishable in images compressed by conventional methods.
 
-![results](/images/projects/spic/results.png " mx-auto | Visual comparison between the original image and SSM (CENTER), the image compressed with BPG at 0.176 BPP with the associated generated SSM (LEFT), and the image obtained with the proposed SPIC framework at 0.166 BPP and the associated generated SSM (RIGHT). At similar values of BPP the proposed approach preserves semantically relevant details better than BPG. The person riding the bicycle is clearly detected by the generated SSM.")
+![results](/images/projects/spic/results.webp " mx-auto | Visual comparison between the original image and SSM (CENTER), the image compressed with BPG at 0.176 BPP with the associated generated SSM (LEFT), and the image obtained with the proposed SPIC framework at 0.166 BPP and the associated generated SSM (RIGHT). At similar values of BPP the proposed approach preserves semantically relevant details better than BPG. The person riding the bicycle is clearly detected by the generated SSM.")
 
 
 `

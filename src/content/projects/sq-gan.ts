@@ -27,13 +27,13 @@ export const sqGanProject = {
 
 SQ-GAN, or Semantic Masked Vector Quantized Generative Adversarial Network, is a pioneering method designed to enhance image compression for task-oriented communication systems. Unlike traditional compression techniques that treat all image data equally, SQ-GAN intelligently identifies and prioritizes semantically important regions, ensuring critical information is preserved even at very high compression ratios. This approach is particularly valuable for applications where specific visual elements hold greater significance, such as autonomous driving or surveillance.
 
-![general_scheme](/images/projects/sqgan/general_scheme.png "md:w-2/3 lg:w-2/3 mx-auto | A schematic representation of the overall flow from image capture to reconstruction.")
+![general_scheme](/images/projects/sqgan/general_scheme.webp "md:w-2/3 lg:w-2/3 mx-auto | A schematic representation of the overall flow from image capture to reconstruction.")
 
 ## Architecture Overview
 
 The SQ-GAN framework is built upon a sophisticated architecture that integrates semantic segmentation with a masked vector quantization process. It operates through distinct transmitter and receiver components. The transmitter extracts both the raw image and its semantic segmentation map, then jointly encodes them using a semantic-guided vector quantization strategy. The core of this process involves novel modules that adaptively select and quantize only the most semantically relevant features. At the receiver, the quantized information is decoded and de-masked to reconstruct the image and its semantic map, ensuring high fidelity for the areas that matter most.
 
-![schema](/images/projects/sqgan/schema_vero.png "md:w-2/3 lg:w-2/3 mx-auto | Detailed structure of the proposed SQ-GAN encoder and decoder, showing the interplay between image and semantic segmentation map pipelines.")
+![schema](/images/projects/sqgan/schema_vero.webp "md:w-2/3 lg:w-2/3 mx-auto | Detailed structure of the proposed SQ-GAN encoder and decoder, showing the interplay between image and semantic segmentation map pipelines.")
 
 
 ## Key Innovations
@@ -45,7 +45,7 @@ SQ-GAN introduces several pivotal innovations to achieve its superior performanc
 * **Targeted Data Augmentation:** During training, a specifically designed data augmentation technique is employed to enhance the focus on semantically relevant classes.
 * **Semantic-Aware Discriminator:** The inclusion of this discriminator during the training phase guides the model to prioritize the importance of semantically relevant regions over less significant ones.
 
-![data_aug](/images/projects/sqgan/data_augmentation.png "md:w-2/3 lg:w-2/3 mx-auto | Effect of the targeted Data Augmentation aimed to increase the presence of semantically relevant classes such as traffic signs and traffic lights. (Left) origninal and (Right) augmented with random rotation, cropping and the proposed semantic relevant classes enhancement.")
+![data_aug](/images/projects/sqgan/data_augmentation.webp "md:w-2/3 lg:w-2/3 mx-auto | Effect of the targeted Data Augmentation aimed to increase the presence of semantically relevant classes such as traffic signs and traffic lights. (Left) origninal and (Right) augmented with random rotation, cropping and the proposed semantic relevant classes enhancement.")
 
 ## Training Methodology
 
@@ -59,7 +59,7 @@ Training SQ-GAN is a methodical three-step process designed to progressively opt
 
 The effectiveness of SQ-GAN is rigorously evaluated against state-of-the-art image compression techniques. Evaluation considers multiple metrics, including perceptual quality and semantic segmentation accuracy on the reconstructed images, particularly at extremely low compression rates. Results demonstrate SQ-GAN's significant superiority over methods like JPEG2000, BPG, and other deep-learning based approaches.
 
-![comparison](/images/projects/sqgan/comparison_bpg.png " mx-auto | Visual comparison at different compression rates between the proposed SQ-GAN (TOP) and the classical BPG (BOTTOM). The SSMs shown are generated from the reconstructed image via the SOTA SSModel INTERN-2.5. The proposed model is able to reconstruct images with higher semantic retention and lower values of BPP compared with BPG. The BPG algorithm is not able to compress images at lower values than 0.038 BPP, thus the comparison is limited to 0.038 and 0.078 BPP..")
+![comparison](/images/projects/sqgan/comparison_bpg.webp " mx-auto | Visual comparison at different compression rates between the proposed SQ-GAN (TOP) and the classical BPG (BOTTOM). The SSMs shown are generated from the reconstructed image via the SOTA SSModel INTERN-2.5. The proposed model is able to reconstruct images with higher semantic retention and lower values of BPP compared with BPG. The BPG algorithm is not able to compress images at lower values than 0.038 BPP, thus the comparison is limited to 0.038 and 0.078 BPP..")
 
 `
 };

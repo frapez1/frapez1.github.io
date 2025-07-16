@@ -30,7 +30,7 @@ const Portfolio = () => {
           <div className="flex justify-between items-center">
            <Link to="/" className="flex items-center space-x-3">
               <img 
-                src="/logo_FP.png" 
+                src="/logo_FP.webp" 
                 alt="FP Logo" 
                 className="w-8 h-8"
                 // style={{ filter: 'hue-rotate(200deg) saturate(0.8) brightness(1.2)' }}

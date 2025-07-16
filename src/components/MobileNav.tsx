@@ -27,13 +27,13 @@ const MobileNav: React.FC<MobileNavProps> = ({ scrollToContact }) => {
 
       {/* Mobile Menu Overlay - positioned on the right */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-900">
+        <div className="fixed inset-0 z-50 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
           <div className="flex flex-col h-full">
             {/* Header */}
             <div className="flex justify-between items-center p-4 px-6 border-b border-slate-700">
               <Link to="/" onClick={closeMenu} className="flex items-center space-x-3">
                 <img 
-                  src="/logo_FP.png" 
+                  src="/logo_FP.webp" 
                   alt="FP Logo" 
                   className="w-8 h-8"
                 />
@@ -50,7 +50,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ scrollToContact }) => {
             </div>
 
             {/* Navigation Links */}
-            <nav className="flex-1 px-6 py-8 bg-blue-500">
+            <nav className="flex-1 px-6 py-8 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
             <div className="space-y-6 text-right">
                 <Link 
                 to="/" 

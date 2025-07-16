@@ -69,7 +69,7 @@ const ProjectDetail = () => {
           <div className="flex justify-between items-center">
             <Link to="/" className="flex items-center space-x-3">
               <img 
-                src="/logo_FP.png" 
+                src="/logo_FP.webp" 
                 alt="FP Logo" 
                 className="w-8 h-8"
               />

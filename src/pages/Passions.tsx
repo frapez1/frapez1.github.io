@@ -14,7 +14,7 @@ const Passions = () => {
       description: "It's like grown-up playtime, but with way more core strength and trust involved. There's just something super cool about lifting someone into the air (or being the one flying). Trusting the process and knowing that everyone will do their part is key. The rest will be amazing!",
       media: {
         type: "",
-        src: "/images/passions/Acro.png",
+        src: "/images/passions/Acro.webp",
         alt: "Mountain landscape photography"
       },
       side: "right"
@@ -24,7 +24,7 @@ const Passions = () => {
       description: "Pack some snacks, hop on the bike, and just go. I love the mix of freedom and simplicity, riding all day, then setting up camp wherever feels right. No rush, no plans, just vibes, fresh air, and maybe a few unexpected detours. Just a suggestion if you're reading... check the wind!",
       media: {
         type: "image",
-        src: "/images/passions/camping.png",
+        src: "/images/passions/camping.webp",
         alt: "Technology and innovation"
       },
       side: "left"
@@ -49,7 +49,7 @@ const Passions = () => {
           <div className="flex justify-between items-center">
             <Link to="/" className="flex items-center space-x-3">
               <img 
-                src="/logo_FP.png" 
+                src="/logo_FP.webp" 
                 alt="FP Logo" 
                 className="w-8 h-8"
               />

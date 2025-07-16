@@ -16,7 +16,7 @@ const Index = () => {
           <div className="flex justify-between items-center">
             <Link to="/" className="flex items-center space-x-3">
               <img 
-                src="/logo_FP.png" 
+                src="/logo_FP.webp" 
                 alt="FP Logo" 
                 className="w-8 h-8"
               />
@@ -101,7 +101,7 @@ const Index = () => {
               <div className="relative">
                 <div className="w-full max-w-md mx-auto">
                   <img 
-                    src="/images/home/image_home.png"
+                    src="/images/home/image_home.webp"
                     alt="Francesco Pezone"
                     className="w-full h-auto rounded-2xl shadow-2xl border-4 border-slate-700"
                   />
