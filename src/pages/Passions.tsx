@@ -34,7 +34,7 @@ const Passions = () => {
       description: "Come on... look at this BEAUTY! Do I really need to say more??",
       media: {
         type: "image",
-        src: "/images/passions/cat.jpeg",
+        src: "/images/passions/cat.webp",
         alt: "Mountain landscape photography"
       },
       side: "right"
