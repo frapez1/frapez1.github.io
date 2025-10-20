@@ -33,38 +33,17 @@ const CV = () => {
     ]
   };
 
-  const education = [
-    {
-      degree: "PhD in Data Science",
-      period: "Nov 2021 - Jan 2025",
-      institution: "Sapienza University of Rome (Cotutelle with TU Berlin)",
-      location: "Rome, IT",
-      details: "Researched integration of generative models (DDPMs, GANs, VAEs) into semantic communication frameworks for efficient data compression and reconstruction."
-    },
-    {
-      degree: "PhD in Engineering", 
-      period: "Nov 2021 - Jan 2025",
-      institution: "Technische Universität Berlin (Cotutelle with Sapienza)",
-      location: "Berlin, DE",
-      details: "Developed resource allocation strategies for Edge Networks using stochastic optimization and Information Bottleneck principle."
-    },
-    {
-      degree: "M.Sc. in Data Science",
-      period: "Sep 2019 - June 2021", 
-      institution: "Sapienza University of Rome",
-      location: "Rome, IT",
-      details: "Specialized in Deep Learning, Data Mining, NLP and Big Data. Awarded IEEE SPS Italy Best Master's Thesis Prize | Ranked first in Master's Honors Program."
-    },
-    {
-      degree: "B.Sc. in Physics",
-      period: "Sep 2015 - June 2019",
-      institution: "University of Rome Tor Vergata", 
-      location: "Rome, IT",
-      details: "Strong foundation in mathematics, physics and analytical thinking."
-    }
-  ];
-
+  const INITIAL_EXPERIENCES_TOSHOW = 3; // how many experiences to show before the "Show previous Experience" button
   const experience = [
+    // {
+    //   position: "",
+    //   company: "Motus ML",
+    //   period: "Nov 2025 - current",
+    //   location: "Remote (Milan, IT)",
+    //   details: [
+    //     
+    //   ]
+    // },
     {
       position: "AI Research Scientist",
       company: "National Inter-University Consortium for Telecommunications (CNIT)",
@@ -74,7 +53,7 @@ const CV = () => {
         "Developed VQ-GAN based image compression framework for semantic communication with 85% bitrate reduction",
         "Outperformed classic and ML-based codecs at bitrates as low as 0.01BPP",
         "Engineered adaptive conditioned masking mechanism for semantically important features",
-        "Authored research journal under review at IEEE Transactions on Cognitive Communications"
+        "Authored research journal published at IEEE Transactions on Cognitive Communications"
       ]
     },
     {
@@ -123,6 +102,38 @@ const CV = () => {
     }
   ];
 
+  const education = [
+    {
+      degree: "PhD in Data Science",
+      period: "Nov 2021 - Jan 2025",
+      institution: "Sapienza University of Rome (Cotutelle with TU Berlin)",
+      location: "Rome, IT",
+      details: "Researched integration of generative models (DDPMs, GANs, VAEs) into semantic communication frameworks for efficient data compression and reconstruction."
+    },
+    {
+      degree: "PhD in Engineering", 
+      period: "Nov 2021 - Jan 2025",
+      institution: "Technische Universität Berlin (Cotutelle with Sapienza)",
+      location: "Berlin, DE",
+      details: "Developed resource allocation strategies for Edge Networks using stochastic optimization and Information Bottleneck principle."
+    },
+    {
+      degree: "M.Sc. in Data Science",
+      period: "Sep 2019 - June 2021", 
+      institution: "Sapienza University of Rome",
+      location: "Rome, IT",
+      details: "Specialized in Deep Learning, Data Mining, NLP and Big Data. Awarded IEEE SPS Italy Best Master's Thesis Prize | Ranked first in Master's Honors Program."
+    },
+    {
+      degree: "B.Sc. in Physics",
+      period: "Sep 2015 - June 2019",
+      institution: "University of Rome Tor Vergata", 
+      location: "Rome, IT",
+      details: "Strong foundation in mathematics, physics and analytical thinking."
+    }
+  ];
+
+
   const getSkillIcon = (category: string) => {
     switch (category) {
       case "Code": return <Code size={20} />;
@@ -133,7 +144,7 @@ const CV = () => {
     }
   };
 
-  const displayedExperience = showAllExperience ? experience : experience.slice(0, 2);
+  const displayedExperience = showAllExperience ? experience : experience.slice(0, INITIAL_EXPERIENCES_TOSHOW);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
@@ -241,38 +252,7 @@ const CV = () => {
         </div>
       </section>
 
-      {/* Education Section */}
-      <section className="py-16 px-6 bg-slate-800/30">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Education
-          </h2>
-          
-          <div className="space-y-8">
-            {education.map((edu, index) => (
-              <div key={index} className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-6 border border-slate-700 hover:border-purple-400 transition-all duration-300">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-2">{edu.degree}</h3>
-                    <p className="text-lg text-slate-300 mb-1">{edu.institution}</p>
-                  </div>
-                  <div className="text-right">
-                    <div className="flex items-center text-slate-400 text-sm mb-1">
-                      <Calendar size={16} className="mr-1" />
-                      {edu.period}
-                    </div>
-                    <div className="flex items-center text-slate-400 text-sm">
-                      <MapPin size={16} className="mr-1" />
-                      {edu.location}
-                    </div>
-                  </div>
-                </div>
-                <p className="text-slate-300">{edu.details}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Experience Section */}
       <section className="py-16 px-6">
@@ -312,7 +292,7 @@ const CV = () => {
             ))}
           </div>
 
-          {experience.length > 2 && (
+          {experience.length > INITIAL_EXPERIENCES_TOSHOW && (
             <div className="flex justify-center mt-8">
               <button
                 onClick={() => setShowAllExperience(!showAllExperience)}
@@ -334,6 +314,40 @@ const CV = () => {
           )}
         </div>
       </section>
+
+      {/* Education Section */}
+      <section className="py-16 px-6 bg-slate-800/30">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            Education
+          </h2>
+          
+          <div className="space-y-8">
+            {education.map((edu, index) => (
+              <div key={index} className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-6 border border-slate-700 hover:border-purple-400 transition-all duration-300">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-2">{edu.degree}</h3>
+                    <p className="text-lg text-slate-300 mb-1">{edu.institution}</p>
+                  </div>
+                  <div className="text-right">
+                    <div className="flex items-center text-slate-400 text-sm mb-1">
+                      <Calendar size={16} className="mr-1" />
+                      {edu.period}
+                    </div>
+                    <div className="flex items-center text-slate-400 text-sm">
+                      <MapPin size={16} className="mr-1" />
+                      {edu.location}
+                    </div>
+                  </div>
+                </div>
+                <p className="text-slate-300">{edu.details}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       {/* Languages & Awards */}
       <section className="py-16 px-6 bg-slate-800/30">

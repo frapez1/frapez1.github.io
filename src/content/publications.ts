@@ -4,7 +4,7 @@ export const publications = [
     title: "SQ-GAN: Semantic Image Communications Using Masked Vector Quantization",
     year: "2025",
     authors: "FRANCESCO PEZONE, Sergio Barbarossa, Giuseppe Caire",
-    location: "Submitted at TCCN",
+    location: "TCCN",
     description: "Advanced semantic-aware image compression GAN-based model leveraging vector quantization and adaptive masking, selectively encoding task-relevant regions guided by semantic segmentation maps.",
     categories: ["Generative AI", "Computer Vision", "Semantic Communication"],
     paperUrl: "https://arxiv.org/abs/2502.09520"
