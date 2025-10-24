@@ -1,7 +1,4 @@
-import { Link } from "react-router-dom";
-import { User, BookOpen, Heart, FileText, Rss, Home, Mail } from "lucide-react";
-import Contact from "../components/Contact";
-import MobileNav from "../components/MobileNav";
+import Layout from '../components/navigation_layout';
 
 const Index = () => {
   const scrollToContact = () => {
@@ -9,55 +6,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-700">
-        <div className="max-w-6xl mx-auto py-4 px-6">
-          <div className="flex justify-between items-center">
-            <Link to="/" className="flex items-center space-x-3">
-              <img 
-                src="/logo_FP.webp" 
-                alt="FP Logo" 
-                className="w-8 h-8"
-              />
-              <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Francesco Pezone, PhD
-              </span>
-            </Link>
-            
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex space-x-6">
-              <Link to="/" className="flex items-center space-x-2 text-blue-400 font-semibold">
-                <Home size={18} />
-                <span>Home</span>
-              </Link>
-              <Link to="/portfolio" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
-                <BookOpen size={18} />
-                <span>Portfolio</span>
-              </Link>
-              <Link to="/passions" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
-                <Heart size={18} />
-                <span>Passions</span>
-              </Link>
-              <button 
-                onClick={scrollToContact}
-                className="flex items-center space-x-2 hover:text-blue-400 transition-colors"
-              >
-                <Mail size={18} />
-                <span>Contact</span>
-              </button>
-              <Link to="/cv" className="flex items-center space-x-2 hover:text-blue-400 transition-colors">
-                <FileText size={18} />
-                <span>CV</span>
-              </Link>
-            </div>
-
-            {/* Mobile Navigation */}
-            <MobileNav scrollToContact={scrollToContact} />
-          </div>
-        </div>
-      </nav>
-
+    <Layout scrollToContact={scrollToContact}>
       {/* Hero/About Section */}
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-6xl mx-auto">
@@ -113,9 +62,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-      <Contact />
-    </div>
+    </Layout>
   );
 };
 
