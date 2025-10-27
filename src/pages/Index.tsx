@@ -19,28 +19,19 @@ const Index = () => {
               
               <div className="space-y-6 text-lg text-slate-300 leading-relaxed">
                 <p>
-                  I'm an AI Researcher with dual Ph.D. degrees in Data Science and Engineering, specializing in 
-                  Computer Vision, Generative AI, optimization theory, and signal processing.
+                  I'm an AI Researcher with a passion for making machines smarter and more efficient. My academic journey, which includes dual Ph.D. degrees in Data Science and Engineering, has given me a deep foundation in Computer Vision, Generative AI, optimization theory, and signal processing.
                 </p>
                 
                 <p>
-                  My research expertise lies in developing and deploying generative AI solutions to achieve high 
-                  compression rates on multimodal data, with particular attention to preserving essential information. 
-                  I'm proficient in both analytical and numerical optimization techniques for energy-aware performance 
-                  tuning in Edge Network environments.
+                  My work has centered on a core challenge: how can we drastically compress data without losing what makes it meaningful? To solve this, I specialize in using Generative AI to achieve extreme compression for images, video, and other media. I develop intelligent systems that preserve the essential information within the data, all while being optimized to run smoothly on edge devices with limited power.
                 </p>
                 
                 <p>
-                  Throughout my career, I've collaborated with leading academic institutions including 
-                  Sapienza University of Rome, TU Berlin, and the National Inter-University Consortium for Telecommunications (CNIT), 
-                  as well as industry partners. My work has been published in top-tier conferences and journals, 
-                  contributing to the advancement of semantic communications and generative AI applications.
+                  I have collaborated with leading academic institutions, including Sapienza University of Rome, TU Berlin, and the National Inter-University Consortium for Telecommunications (CNIT), as well as various industry partners. My research papers have been published in top-tier conferences and journals, pushing the boundaries of semantic communications and generative AI applications.
                 </p>
                 
                 <p>
-                  I believe in developing systems that are both technically rigorous and practically deployable, 
-                  always keeping in mind the real-world constraints and requirements that make research impactful 
-                  in both academic and industrial contexts.
+                  For me, the most exciting research doesn't just live in a paper; it's designed from the ground up to be robust, practical, and impactful outside the lab.
                 </p>
               </div>
             </div>
