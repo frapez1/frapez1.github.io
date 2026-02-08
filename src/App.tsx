@@ -1,10 +1,10 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { useScrollToTop } from "./hooks/useScrollToTop";
+import { useEffect } from "react";
 import "highlight.js/styles/github-dark.css";
 import "katex/dist/katex.min.css";
 import Index from "./pages/Index";
@@ -23,6 +23,21 @@ const ScrollToTopWrapper = () => {
   return null;
 };
 
+const RedirectHandler = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if we were redirected from 404.html
+    const redirectPath = sessionStorage.getItem('redirectPath');
+    if (redirectPath) {
+      sessionStorage.removeItem('redirectPath');
+      navigate(redirectPath, { replace: true });
+    }
+  }, [navigate]);
+
+  return null;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -30,6 +45,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTopWrapper />
+        <RedirectHandler />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/portfolio" element={<Portfolio />} />
