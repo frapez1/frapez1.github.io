@@ -349,7 +349,7 @@ const CV = () => {
                   <div className="flex items-start space-x-3">
                     <Award className="text-yellow-400 mt-1" size={20} />
                     <div>
-                      <h3 className="text-white font-semibold">First in Master's Honors Program</h3>
+                      <h3 className="text-white font-semibold">Ranked First in the Master's Honors Program</h3>
                       <p className="text-slate-400 text-sm">Top academic performance in Data Science program</p>
                     </div>
                   </div>
