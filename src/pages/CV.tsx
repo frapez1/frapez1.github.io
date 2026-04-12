@@ -35,24 +35,27 @@ const CV = () => {
 
   const INITIAL_EXPERIENCES_TOSHOW = 3; // how many experiences to show before the "Show previous Experience" button
   const experience = [
-    // {
-    //   position: "",
-    //   company: "Motus ML",
-    //   period: "Nov 2025 - current",
-    //   location: "Remote (Milan, IT)",
-    //   details: [
-    //     
-    //   ]
-    // },
+    {
+      position: "Senior ML Engineer (Edge & Space Systems)",
+      company: "Motus ML",
+      period: "Dec 2025 - current",
+      location: "Remote (Milan, IT)",
+      details: [
+        "Leading development of computer vision ML models distributed over multiple LEO satellites",
+        "Designing and optimizing the model pipeline for real-time processing of high-resolution Earth observation data",
+        "Developing models that adapt to the constraints of inter-satellite communication links ensuring they produce usable results even when the data is highly compressed/corrupted", 
+        "Evaluating software strategies to fit model inference inside strict onboard power and memory budgets"       
+      ]
+    },
     {
       position: "AI Research Scientist",
       company: "National Inter-University Consortium for Telecommunications (CNIT)",
       period: "Sep 2024 - Jan 2025",
       location: "Remote (Rome, IT)",
       details: [
-        "Developed VQ-GAN based image compression framework for semantic communication with 85% bitrate reduction",
-        "Outperformed classic and ML-based codecs at bitrates as low as 0.01BPP",
-        "Engineered adaptive conditioned masking mechanism for semantically important features",
+        "Developed VQ-GAN based image compression framework for semantic communication",
+        "Outperformed classic and ML-based codecs at bitrates as low as 0.01BPP with 85% performance increase",
+        "Engineered adaptive mechanism identifying semantic important features and preserving them during compression",
         "Authored research journal published at IEEE Transactions on Cognitive Communications"
       ]
     },
