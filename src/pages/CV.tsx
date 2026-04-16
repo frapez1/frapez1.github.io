@@ -36,7 +36,7 @@ const CV = () => {
   const INITIAL_EXPERIENCES_TOSHOW = 3; // how many experiences to show before the "Show previous Experience" button
   const experience = [
     {
-      position: "Senior ML Engineer (Edge & Space Systems)",
+      position: "Senior ML Engineer",
       company: "Motus ML",
       period: "Dec 2025 - current",
       location: "Remote (Milan, IT)",
