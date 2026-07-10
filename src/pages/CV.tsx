@@ -13,17 +13,17 @@ const CV = () => {
 
   const skills = {
     Code: [
-      "Python", "PyTorch", "TensorFlow", "Docker", "Git",
+      "Python", "PyTorch", "Docker", "Git",
       "AWS", "Lambda", "Bash", "SQL"
     ],
   
     "AI/ML": [
-      "Transformers", "Computer Vision", "LLMs", "LangGraph",
-      "OpenCV", "Diffusion Models", "Multimodal learning", "Synthetic Data Generation"  
+      "Transformers", "Computer Vision", "ViT", "LLMs",
+      "OpenCV", "Diffusion Models", "Multimodal learning"  
     ],
   
     Data_Deployment: [
-      "NumPy", "Pandas", "MLOps", "FastAPI", "MLflow",
+      "NumPy", "Pandas", "MLOps", "MLflow",
       "Seaborn", "OpenCV", "BeautifulSoup"
     ],
   
@@ -41,7 +41,7 @@ const CV = () => {
       period: "Dec 2025 - current",
       location: "Remote (Milan, IT)",
       details: [
-        "Leading development of computer vision ML models distributed over multiple LEO satellites",
+        "Leading the development of computer vision ML models distributed over multiple LEO satellites",
         "Designing and optimizing the model pipeline for real-time processing of high-resolution Earth observation data",
         "Developing models that adapt to the constraints of inter-satellite communication links ensuring they produce usable results even when the data is highly compressed/corrupted", 
         "Evaluating software strategies to fit model inference inside strict onboard power and memory budgets"       
